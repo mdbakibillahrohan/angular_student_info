@@ -1,0 +1,15 @@
+.home {
+  width: 100%;
+  height: auto;
+}
+
+.student-list {
+  width: 80%;
+  margin: 50px auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

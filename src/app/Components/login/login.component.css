@@ -1,0 +1,19 @@
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+}
+
+.mat-form-field {
+  width: 400px;
+}
+
+.button {
+  text-align: center;
+}
+
+.button button {
+  margin: 0px 20px;
+}

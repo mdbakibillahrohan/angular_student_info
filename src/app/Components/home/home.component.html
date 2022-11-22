@@ -1,0 +1,31 @@
+<div class="home">
+  <div class="student-list">
+    <div class="header">
+      <h2>List of the Students</h2>
+
+      <div class="filter">
+        <mat-form-field appearance="fill">
+          <mat-label>Filter By</mat-label>
+          <mat-select>
+            <mat-option *ngFor="let filt of filter" [value]="filt.value">
+              {{filt.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="search">
+        <mat-form-field class="example-full-width">
+          <mat-label>Search</mat-label>
+          <input matInput placeholder="Ex. Steve">
+        </mat-form-field>
+      </div>
+
+    </div>
+
+    <app-students-list></app-students-list>
+    <mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page">
+    </mat-paginator>
+
+  </div>
+</div>

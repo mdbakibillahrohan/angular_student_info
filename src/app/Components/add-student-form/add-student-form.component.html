@@ -1,0 +1,61 @@
+<div class="add-student">
+  <form #studentForm="ngForm" (submit)="onStudentFormSubmit(studentForm.value)">
+    <div class="mat-title">Student Form</div>
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Name</mat-label>
+        <input name="name" ngModel required type="text" matInput>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Email Address</mat-label>
+        <input name="email" ngModel required type="email" matInput>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Select Semester</mat-label>
+        <mat-select (selectionChange)="selectSemester($event)" required>
+          <mat-option>--</mat-option>
+          <mat-option *ngFor="let semester of semesters" [value]="semester.id">
+            {{semester.semester_name}}
+          </mat-option>
+        </mat-select>
+        <!-- <mat-error *ngIf="animalControl.hasError('required')">Please choose an animal</mat-error> -->
+        <!-- <mat-hint>{{animalControl.value?.sound}}</mat-hint> -->
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Select Shift</mat-label>
+        <mat-select required>
+          <mat-option>--</mat-option>
+          <mat-option *ngFor="let shift of shifts" [value]="shift.id">
+            {{shift.shift_name}}
+          </mat-option>
+        </mat-select>
+        <!-- <mat-error *ngIf="animalControl.hasError('required')">Please choose an animal</mat-error> -->
+        <!-- <mat-hint>{{animalControl.value?.sound}}</mat-hint> -->
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Select Country</mat-label>
+        <mat-select required>
+          <mat-option>--</mat-option>
+          <mat-option *ngFor="let country of countries" [value]="country.id">
+            {{country.country_name}}
+          </mat-option>
+        </mat-select>
+        <!-- <mat-error *ngIf="animalControl.hasError('required')">Please choose an animal</mat-error> -->
+        <!-- <mat-hint>{{animalControl.value?.sound}}</mat-hint> -->
+      </mat-form-field>
+    </div>
+    <div class="button">
+      <button color="accent" mat-raised-button>Add Student</button>
+
+    </div>
+  </form>
+</div>
