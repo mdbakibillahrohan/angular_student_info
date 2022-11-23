@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { count } from 'rxjs';
 import { baseUrl } from 'src/environments/environment';
 
 @Injectable({
@@ -10,7 +9,11 @@ export class AuthService {
 
   loginData: object | null = null;
   constructor(private http: HttpClient) {
-
+    if (sessionStorage.getItem("loginData")) {
+      let login: any;
+      login = sessionStorage.getItem("loginData");
+      this.loginData = JSON.parse(login)
+    }
   }
 
 
@@ -23,6 +26,7 @@ export class AuthService {
 
   setLoginData(data: object) {
     this.loginData = data;
+    sessionStorage.setItem("loginData", JSON.stringify(this.loginData));
   }
 
   login(email: string, password: string) {

@@ -1,39 +1,57 @@
-<table mat-table [dataSource]="students" class="mat-elevation-z8">
+<div class="overflow-x-auto relative shadow-md sm:rounded-lg">
+  <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+      <tr>
+        <th scope="col" class="py-3 px-6">
+          SL
+        </th>
+        <th scope="col" class="py-3 px-6">
+          Student Name
+        </th>
+        <th scope="col" class="py-3 px-6">
+          Email
+        </th>
+        <th scope="col" class="py-3 px-6">
+          Shift
+        </th>
+        <th scope="col" class="py-3 px-6">
+          Semester
+        </th>
+        <th scope="col" class="py-3 px-6">
+          Country
+        </th>
+        <th scope="col" class="py-3 px-6">
+          <span class="sr-only">Edit</span>
+        </th>
+      </tr>
+    </thead>
+    <tbody *ngIf="hasData">
+      <tr *ngFor="let student of students"
+        class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+        <td class="py-4 px-6">
+          {{student.sl_no}}
+        </td>
+        <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+          {{student.student_name}}
+        </th>
+        <td class="py-4 px-6">
+          {{student.email}}
+        </td>
+        <td class="py-4 px-6">
+          {{student.shift}}
+        </td>
+        <td class="py-4 px-6">
+          {{student.semester}}
+        </td>
+        <td class="py-4 px-6">
+          {{student.country}}
+        </td>
+        <td class="py-4 px-6 text-right">
+          <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+        </td>
+      </tr>
+    </tbody>
 
-  <!--- Note that these columns can be defined in any order.
-        The actual rendered columns are set as a property on the row definition" -->
-
-  <!-- Position Column -->
-  <ng-container matColumnDef="sl">
-    <th mat-header-cell *matHeaderCellDef> No. </th>
-    <td mat-cell *matCellDef="let element;"> {{element.sl}} </td>
-  </ng-container>
-
-  <!-- Name Column -->
-  <ng-container matColumnDef="name">
-    <th mat-header-cell *matHeaderCellDef> Name </th>
-    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-  </ng-container>
-
-  <!-- Weight Column -->
-  <ng-container matColumnDef="semester">
-    <th mat-header-cell *matHeaderCellDef> Semester </th>
-    <td mat-cell *matCellDef="let element"> {{element.semester}} </td>
-  </ng-container>
-
-  <!-- Symbol Column -->
-  <ng-container matColumnDef="shift">
-    <th mat-header-cell *matHeaderCellDef> Shift </th>
-    <td mat-cell *matCellDef="let element"> {{element.shift}} </td>
-  </ng-container>
-
-  <!-- Symbol Column -->
-  <ng-container matColumnDef="country">
-    <th mat-header-cell *matHeaderCellDef> Country </th>
-    <td mat-cell *matCellDef="let element"> {{element.country}} </td>
-  </ng-container>
-
-
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
+  </table>
+  <h2 class="text-center my-3" #elseBlock>No Data to Show</h2>
+</div>
